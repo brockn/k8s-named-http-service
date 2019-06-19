@@ -7,11 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-  if os.Getenv("SERVICE_NAME") == "" {
-	  fmt.Fprintf(w, "ServiceName: Null")
-  } else {
-	  fmt.Fprintf(w, "ServiceName: %s", os.Getenv("SERVICE_NAME"))
-  }
+  fmt.Fprintf(w, "ServiceName: %s, Path: %s\n", os.Getenv("SERVICE_NAME"), r.URL.Path)
 }
 
 func main() {
